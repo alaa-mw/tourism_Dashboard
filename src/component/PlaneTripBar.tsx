@@ -39,7 +39,7 @@ const PlaneTripBar = ({ selectedPlane }) => {
   }, [shouldRefetch.planeTrips]);
   return (
     <>
-      <HStack width="57vw" gap={"42vw"}>
+      <HStack width="57vw" gap={"44vw"}>
         <Heading fontFamily={FONTS.heading} size={"md"} ml={4} mb={0}>
           Plane Trips
         </Heading>
@@ -55,7 +55,8 @@ const PlaneTripBar = ({ selectedPlane }) => {
         height="70vh"
         overflow={"auto"}
         p={"4px"}
-        border={`1px solid ${COLORS.Gray} `}
+        border={`3px solid ${COLORS.border} `}
+        boxShadow="base"
         borderRadius={10}
         sx={{
           "&::-webkit-scrollbar": {

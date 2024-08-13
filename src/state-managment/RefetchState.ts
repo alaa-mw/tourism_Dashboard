@@ -13,6 +13,10 @@ export interface RefetchState {
         planes:boolean;
         planeTrips:boolean;
         
+        //trip
+        trips:boolean;
+        tripDetails:boolean,
+        
     }
     setShouldRefetch: (data:Partial<RefetchState['shouldRefetch']> ) => void,
 
@@ -29,6 +33,10 @@ const useRefetchState = create<RefetchState>((set) => ({
         // airport
         planes:false,
         planeTrips:false,
+
+        //trip
+        trips:false,
+        tripDetails:false,
     },
      
     setShouldRefetch: (data: Partial<RefetchState['shouldRefetch']>) =>  {

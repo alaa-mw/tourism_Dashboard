@@ -1,8 +1,4 @@
-import {
-  HStack,
-  IconButton,
-  useColorMode
-} from "@chakra-ui/react";
+import { Box, HStack, IconButton, useColorMode } from "@chakra-ui/react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const ColorModeSwitch = () => {
@@ -12,6 +8,9 @@ const ColorModeSwitch = () => {
   return (
     <HStack>
       <IconButton
+        border={"1px solid white"}
+        borderRadius={"100%"}
+        pl={1.5}
         icon={
           colorMode == "dark" ? (
             <MdDarkMode color="white" size={25} />
@@ -20,8 +19,8 @@ const ColorModeSwitch = () => {
           )
         }
         _hover={{
-          transform: "scale(1.2)", 
-          transition: "transform 0.7s ease", 
+          transform: "scale(1.04)",
+          transition: "transform 0.7s ease",
         }}
         variant="unstyled" // Remove default styles
         bg="transparent" // Remove default background color

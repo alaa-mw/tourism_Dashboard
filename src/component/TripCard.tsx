@@ -24,6 +24,7 @@ import { FaCheck } from "react-icons/fa6";
 import useSendData from "../hooks/useSendData";
 import TripUpdateModal from "./TripUpdateModal";
 import { IoMdAdd } from "react-icons/io";
+import useRefetchState from "../state-managment/RefetchState";
 
 interface Props {
   trip: Trip;
@@ -33,6 +34,7 @@ interface Props {
 }
 
 const TripCard = ({ trip, setID, tripDetails }: Props) => {
+  const { shouldRefetch, setShouldRefetch } = useRefetchState();
   const { data, mutate: mutateDelete } = useSendData<Trip>(
     "/admin/trip-cancellation"
   );
@@ -64,6 +66,7 @@ const TripCard = ({ trip, setID, tripDetails }: Props) => {
           });
         },
         onSuccess: (data) => {
+          setShouldRefetch({ trips: true });
           toast({
             title: "success",
             description: `${data.message}`,
@@ -90,6 +93,7 @@ const TripCard = ({ trip, setID, tripDetails }: Props) => {
         transform: "scale(1.01)", // Optional: Scale up the card on hover
         transition: "box-shadow 0.7s ease, transform 0.7s ease", // Smooth transition
       }}
+      bgColor={COLORS.GrayBlue}
       // scaleY={showInputGroup ? "100px" : "70px"}
     >
       <HStack h="100%" justifyContent={"space-between"} gap={10}>
@@ -149,7 +153,12 @@ const TripCard = ({ trip, setID, tripDetails }: Props) => {
           plane={selectedPlane ? selectedPlane : undefined}
           disable={!selectedPlane ? true : false}
         /> */}
-            <TripUpdateModal title="update" icon={<IoMdAdd />} trip={trip} tripDetails={tripDetails}/>
+            <TripUpdateModal
+              title="update"
+              icon={<IoMdAdd />}
+              trip={trip}
+              tripDetails={tripDetails}
+            />
           </HStack>
         </motion.div>
       )}

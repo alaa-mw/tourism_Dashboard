@@ -45,14 +45,17 @@ const SideBar = ({ sidebarData }: Props) => {
   return (
     <Flex
       pos={"fixed"}
-      mt={16}
-      h="91vh"
+      mt={"60px"}
+      h="92vh"
       boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.3)"
       borderRadius={navSize == "small" ? "0 10px 10px 0" : "0 20px 20px 0"}
       w={navSize == "small" ? "75px" : "210px"}
       flexDirection="column"
       justifyContent="space-between"
-      bgGradient={[`linear(to-b,${COLORS.cyan_2},blue.100,${COLORS.cyan_2})`]}
+      // bgGradient={[`linear(to-b,${COLORS.lightblue} ,blue.100,${COLORS.cyan_2},${COLORS.lightblue} )`]}
+      bgGradient={[`linear(to-b,#018ABE ,#97CADB,#018ABE)`]}
+      // bgGradient={[`linear(to-b, #335566, #8899AA, #335566)`]}
+
     >
       <Flex
         p="5%"

@@ -34,7 +34,7 @@ const RoomCard = ({ room }: Props) => {
       },
       {
         onSuccess: () => {
-          setShouldRefetch({hotels:true})
+          setShouldRefetch({ hotels: true });
           toast({
             title: "Status Updated.",
             status: "success",
@@ -55,9 +55,9 @@ const RoomCard = ({ room }: Props) => {
       w="160px"
       overflow="hidden"
       _hover={{
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add your desired hover effect
-        transform: "scale(1.01)", // Optional: Scale up the card on hover
-        transition: "box-shadow 0.7s ease, transform 0.7s ease", // Smooth transition
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        transform: "scale(1.01)",
+        transition: "box-shadow 0.7s ease, transform 0.7s ease",
       }}
       m={1}
       p={1}

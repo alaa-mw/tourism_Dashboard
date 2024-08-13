@@ -71,27 +71,41 @@ const UserProfileHotel = () => {
   }, [shouldRefetch.hotels]);
 
   return (
-    <VStack mb={15}>
-      <VStack alignItems="flex-start" justifyContent="flex-start">
-        <Image
-          border="2px solid gray"
-          borderRadius={10}
-          boxSize={"100px"}
-          src={
-            data?.data[0]?.image
-              ? getImageUrl(data?.data[0].image)
-              : getImageUrl("")
-          }
-          boxShadow="lg"
-        />
-        <Box ml="120px" mt="-20px">
-          <FormControl mb={4}>
+    <VStack
+      alignItems="flex-start"
+      justifyContent="flex-start"
+      borderLeft={`2px solid ${COLORS.border}`}
+      h="45vh"
+      p={2}
+    >
+      <Text
+        fontFamily={FONTS.heading}
+        fontSize={"1.3em"}
+        color={COLORS.darkblue}
+        p="0 6px"
+        m="0"
+      >
+        Hotel Info:
+      </Text>
+      <HStack>
+        <VStack>
+          <Image
+            border="1px solid gray"
+            borderRadius={10}
+            h={"200px"}
+            w={"180px"}
+            src={
+              data?.data[0]?.image
+                ? getImageUrl(data?.data[0].image)
+                : getImageUrl("")
+            }
+            boxShadow="lg"
+          />
+          <FormControl mb={4} ml={10}>
             <FormLabel>
-              <MdAddAPhoto
-                size={27}
-                cursor="pointer"
-                onClick={handleImageUpload}
-              />
+              <Button h="25px" onClick={handleImageUpload}>
+                change photo
+              </Button>
             </FormLabel>
             <Input
               type="file"
@@ -101,70 +115,72 @@ const UserProfileHotel = () => {
               onChange={handleImageUpload}
             />
           </FormControl>
-        </Box>
-        <HStack>
-          <Text
-            fontFamily={FONTS.heading}
-            fontSize={"1.5em"}
-            color={COLORS.darkblue}
-            p="0 6px"
-            m="0"
-          >
-            Hotel Name:
-          </Text>
-          <Text fontSize={"1.2em"} p="0 6px" m="0">
-            {data?.data[0]?.name}
-          </Text>
-        </HStack>
-        <HStack>
-          <Text
-            fontFamily={FONTS.heading}
-            fontSize={"1.5em"}
-            color={COLORS.darkblue}
-            p="0 6px"
-            m="0"
-          >
-            Stars:
-          </Text>
-          <HStack gap={0.001}>
-            {[...Array(5)].map((_, idx) =>
-              idx < rating ? (
-                <IoMdStar key={idx} color={"#ffd500"} size={20} />
-              ) : (
-                <IoMdStarOutline color="gray" key={idx} size={20} />
-              )
-            )}
+        </VStack>
+        <Box>
+          <HStack>
+            <Text
+              fontFamily={FONTS.heading}
+              fontSize={"1.3em"}
+              color={COLORS.darkblue}
+              p="0 6px"
+              m="0"
+            >
+              Name:
+            </Text>
+            <Text fontSize={"1em"} p="0 6px" m="0">
+              {data?.data[0]?.name}
+            </Text>
           </HStack>
-        </HStack>
-        <HStack>
-          <Text
-            fontFamily={FONTS.heading}
-            fontSize={"1.5em"}
-            color={COLORS.darkblue}
-            p="0 6px"
-            m="0"
-          >
-            Hotel Location:
-          </Text>
-          <Text fontSize={"1.2em"} p="0 6px" m="0">
-            {data?.data[0]?.area.name}, {data?.data[0]?.country.name}
-          </Text>
-        </HStack>
-        <HStack>
-          <Text
-            fontFamily={FONTS.heading}
-            fontSize={"1.5em"}
-            color={COLORS.darkblue}
-            p="0 6px"
-            m="0"
-          >
-            Total Rooms:
-          </Text>
-          <Text fontSize={"1.2em"} p="0 6px" m="0">
-            {data?.data[0]?.number_rooms}
-          </Text>
-        </HStack>
-      </VStack>
+          <HStack>
+            <Text
+              fontFamily={FONTS.heading}
+              fontSize={"1.3em"}
+              color={COLORS.darkblue}
+              p="0 6px"
+              m="0"
+            >
+              Stars:
+            </Text>
+            <HStack gap={0.001}>
+              {[...Array(5)].map((_, idx) =>
+                idx < rating ? (
+                  <IoMdStar key={idx} color={"#ffd500"} size={20} />
+                ) : (
+                  <IoMdStarOutline color="gray" key={idx} size={20} />
+                )
+              )}
+            </HStack>
+          </HStack>
+          <HStack>
+            <Text
+              fontFamily={FONTS.heading}
+              fontSize={"1.3em"}
+              color={COLORS.darkblue}
+              p="0 6px"
+              m="0"
+            >
+              Location:
+            </Text>
+            <Text fontSize={"1em"} p="0 6px" m="0">
+              {data?.data[0]?.area.name}, {data?.data[0]?.country.name}
+            </Text>
+          </HStack>
+          <HStack>
+            <Text
+              fontFamily={FONTS.heading}
+              fontSize={"1.3em"}
+              color={COLORS.darkblue}
+              p="0 6px"
+              m="0"
+            >
+              Total Rooms:
+            </Text>
+            <Text fontSize={"1em"} p="0 6px" m="0">
+              {data?.data[0]?.number_rooms} rooms
+            </Text>
+          </HStack>
+        </Box>
+      </HStack>
     </VStack>
   );
 };

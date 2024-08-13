@@ -32,7 +32,7 @@ const PlaneBar = ({ selectedPlane, setPlane, selectedId, setId }: Props) => {
   }, [shouldRefetch.planes]);
   return (
     <>
-      <HStack width="57vw" gap={"36vw"}>
+      <HStack width="57vw" gap={"38vw"}>
         <Heading fontFamily={FONTS.heading} size={"lg"} ml={4} mb={0}>
           My Planes
         </Heading>
@@ -52,7 +52,8 @@ const PlaneBar = ({ selectedPlane, setPlane, selectedId, setId }: Props) => {
         height="23vh"
         overflowX="auto"
         p={"3px"}
-        border={`1px solid ${COLORS.Gray} `}
+        border={`3px solid ${COLORS.border} `}
+        boxShadow="base"
         borderRadius={10}
         sx={{
           "&::-webkit-scrollbar": {

@@ -9,7 +9,7 @@ import {
   Stack,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Trip, TripDetails } from "../../Interfaces/Trip";
 import Header from "../../component/Header";
 import SearchInput from "../../component/SearchInput";
@@ -19,17 +19,35 @@ import useFetchData from "../../hooks/useFetchData";
 import { FetchResponse } from "../../services/api-client";
 import TripDetailsContainer from "../../component/TripDetailsContainer";
 import useFetchDataId from "../../hooks/useFetchDataId";
+import useRefetchState from "../../state-managment/RefetchState";
 
 const Trips = () => {
-  const { data: trip, isLoading } = useFetchData<FetchResponse<Trip[]>>(
-    "/admin/get-trip-admin-trips"
-  );
+  const { shouldRefetch, setShouldRefetch } = useRefetchState();
+  const {
+    data: trip,
+    isLoading,
+    refetch,
+  } = useFetchData<FetchResponse<Trip[]>>("/admin/get-trip-admin-trips");
 
   const [tripId, setTripId] = useState("");
-  const { data: tripDetails, isLoading: isLoadDet } = useFetchDataId<
-    FetchResponse<TripDetails>
-  >(`/admin/show-static-trip/${tripId}`, tripId);
+  const {
+    data: tripDetails,
+    isLoading: isLoadDet,
+    refetch: refetchDetails,
+  } = useFetchDataId<FetchResponse<TripDetails>>(
+    `/admin/show-static-trip/${tripId}`,
+    tripId
+  );
 
+  useEffect(() => {
+    refetch();
+    setShouldRefetch({ trips: false });
+  }, [shouldRefetch.trips]);
+  useEffect(() => {
+    refetchDetails();
+    setShouldRefetch({ tripDetails: false });
+  }, [shouldRefetch.tripDetails]);
+  
   return (
     <HStack ml={5}>
       <VStack mr={5} h="90vh">

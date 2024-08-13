@@ -18,10 +18,10 @@ const Airports = () => {
   return (
     <HStack justifyContent={"space-between"} ml={2}>
       <VStack
-        border="1px solid #ccc"
+        // border="1px solid #ccc"
         borderRadius="md"
         width="57vw"
-        boxShadow="md"
+        // boxShadow="xl"
         height={"90vh"}
       >
         {/* ---------Planes----------- */}
@@ -37,10 +37,11 @@ const Airports = () => {
       {/* ------second----------------------- */}
       <VStack
         width={"25vw"}
-        border="1px solid #ccc"
-        borderRadius="md"
+        
+        border={`3px solid ${COLORS.border} `}
+        boxShadow="base"
+        borderRadius={10}
         height={"90vh"}
-        boxShadow="md"
       >
         <PlaneSchedule />
       </VStack>

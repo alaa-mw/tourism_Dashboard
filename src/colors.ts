@@ -15,4 +15,5 @@ export const COLORS = {
     ha:"#816e9f",
     aa:"#a7757e",
     red300:"#FC8181",
+    border:"#bad5e0"
   }

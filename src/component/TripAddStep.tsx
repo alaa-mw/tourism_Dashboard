@@ -145,32 +145,30 @@ const TripAddStep = ({ steps, handleSubmit, isLoading }) => {
           onSelect={handleStepChange}
         >
           {steps.map((step, index) => (
-            <>
-              <Step key={index} onClick={() => handleStepChange(index)}>
-                <StepIndicator>
-                  <StepStatus
-                    complete={<StepIcon />}
-                    incomplete={<StepNumber />}
-                    active={<StepNumber />}
-                  />
-                </StepIndicator>
+            <Step key={index} onClick={() => handleStepChange(index)}>
+              <StepIndicator>
+                <StepStatus
+                  complete={<StepIcon />}
+                  incomplete={<StepNumber />}
+                  active={<StepNumber />}
+                />
+              </StepIndicator>
 
-                <Box
-                  flexShrink="0"
-                  width={"110px"}
-                  color={COLORS.lightblue}
-                  fontFamily={FONTS.normal}
-                >
-                  <StepTitle as="b">{step.title}</StepTitle>
-                  <br />
-                  <StepDescription as="b">{step.description}</StepDescription>
-                </Box>
+              <Box
+                flexShrink="0"
+                width={"110px"}
+                color={COLORS.lightblue}
+                fontFamily={FONTS.normal}
+              >
+                <StepTitle as="b">{step.title}</StepTitle>
+                <br />
+                <StepDescription as="b">{step.description}</StepDescription>
+              </Box>
 
-                {renderFormControls(step)}
+              {renderFormControls(step)}
 
-                <StepSeparator />
-              </Step>
-            </>
+              <StepSeparator />
+            </Step>
           ))}
         </Stepper>
         <Button

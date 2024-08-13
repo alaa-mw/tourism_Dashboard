@@ -112,7 +112,7 @@ const TripDetailsCard = ({ tripDetails }: Props) => {
               (
                 place // fix -confirm
               ) => (
-                <VStack minW={"100px"} h={"100px"}>
+                <VStack minW={"100px"} h={"100px"} key={place.id}>
                   <Image
                     boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)"
                     borderRadius={10}
@@ -129,7 +129,9 @@ const TripDetailsCard = ({ tripDetails }: Props) => {
               Activites:
             </Text>
             {tripDetails.activities.map((act) => (
-              <Text m={0}>{act.name} </Text>
+              <Text m={0} key={act.id}>
+                {act.name}{" "}
+              </Text>
             ))}
           </HStack>
 
@@ -144,7 +146,10 @@ const TripDetailsCard = ({ tripDetails }: Props) => {
             </Text>
           ) : (
             <Text m={0}>
-              <b>Price:</b> {tripDetails.static_trip.price} ${" "}
+              <b>Price:</b> {tripDetails.static_trip.price} $ -
+              <Text as="span" fontFamily={FONTS.normal}>
+                {tripDetails.static_trip.number_of_people} peoples
+              </Text>{" "}
             </Text>
           )}
           <Text m={0}>

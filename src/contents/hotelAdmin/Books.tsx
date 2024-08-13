@@ -1,6 +1,7 @@
 import {
   Box,
   Heading,
+  Spinner,
   Table,
   TableCaption,
   Tbody,
@@ -16,7 +17,7 @@ import { FONTS } from "../../fonts";
 import useFetchData from "../../hooks/useFetchData";
 import { FetchResponse } from "../../services/api-client";
 const Books = () => {
-  const { data } = useFetchData<FetchResponse<HotelBook[]>>(
+  const { data, isLoading } = useFetchData<FetchResponse<HotelBook[]>>(
     "/admin/get_all_hotel_book"
   );
 
@@ -28,6 +29,7 @@ const Books = () => {
 
       <CustomTableContainer>
         <Table variant="striped" colorScheme="gray" w={"200px"}>
+          {isLoading && <Spinner alignSelf={"center"} boxSize={30}/>}
           <TableCaption>B o o k s</TableCaption>
           <Thead>
             <Tr>
@@ -51,7 +53,11 @@ const Books = () => {
                 // }
               >
                 <Td>{book.id}</Td>
-                <Td>{book?.user?.name ? book?.user?.name : "admin register wait user"}</Td>
+                <Td>
+                  {book?.user?.name
+                    ? book?.user?.name
+                    : "admin register wait user"}
+                </Td>
                 <Td>{book.roomss.id}</Td>
                 <Td>{book.start_date}</Td>
                 <Td>{book.end_date}</Td>

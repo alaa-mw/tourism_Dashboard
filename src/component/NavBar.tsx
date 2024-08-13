@@ -50,11 +50,13 @@ const NavBar = ({ path }) => {
       position="fixed"
       w="100%"
       zIndex={1}
-      backgroundColor={COLORS.darkblue}
+      backgroundColor={COLORS.darkblue}//#557580
+      bgGradient={[`linear(to-r,${COLORS.darkblue},${COLORS.darkblue}  ,#4f6580 70% ,${COLORS.darkblue}  )`]}
       justifyContent="space-between"
       padding="10px"
       boxShadow="base"
       shadow={"0 0 10px rgba(0, 0, 0, 1)"}
+      borderRadius={"0 0 10px 10px"}
     >
       <HStack>
         <Image src={logo} boxSize="40px" borderRadius={10} />

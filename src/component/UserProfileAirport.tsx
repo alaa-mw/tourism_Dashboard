@@ -1,4 +1,5 @@
 import {
+  Divider,
   HStack,
   Input,
   InputGroup,
@@ -20,34 +21,51 @@ const UserProfileAirport = () => {
     "/admin/get-my-airport"
   );
   return (
-    <VStack alignItems="flex-start" justifyContent='flex-start'>
-      <HStack>
+    <VStack
+      alignItems="flex-start"
+      justifyContent="flex-start"
+      gap={5}
+      borderLeft={`2px solid ${COLORS.border}`}
+      h="40vh"
+      p={2}
+    >
+      <Text
+        fontFamily={FONTS.heading}
+        fontSize={"1.5em"}
+        color={COLORS.darkblue}
+        p="0 6px"
+        m="0"
+      >
+        {" "}
+        Airport info:
+      </Text>
+      <HStack ml={2}>
         <Text
           fontFamily={FONTS.heading}
-          fontSize={"1.5em"}
+          fontSize={"1.2em"}
           color={COLORS.darkblue}
           p="0 6px"
           m="0"
         >
-          Airport Name:
+          Name:
         </Text>
         <Text fontSize={"1.2em"} p="0 6px" m="0">
           {airport?.data?.name}
         </Text>
       </HStack>
 
-      <HStack>
+      <HStack ml={2}>
         <Text
           fontFamily={FONTS.heading}
-          fontSize={"1.5em"}
+          fontSize={"1.2em"}
           color={COLORS.darkblue}
           p="0 6px"
           m="0"
         >
-          Airport Location:
+          Location:
         </Text>
         <Text fontSize={"1.2em"} p="0 6px" m="0">
-          {airport?.data?.country.name} - {airport?.data?.area.name}
+         {airport?.data?.area.name}, {airport?.data?.country.name} 
         </Text>
       </HStack>
     </VStack>

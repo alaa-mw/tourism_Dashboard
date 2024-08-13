@@ -6,6 +6,7 @@ import {
   Heading,
   HStack,
   SimpleGrid,
+  Skeleton,
   Tab,
   TabList,
   TabPanel,
@@ -42,9 +43,11 @@ import useSendData from "../../hooks/useSendData";
 import useRefetchState from "../../state-managment/RefetchState";
 const Hotels = () => {
   const { shouldRefetch, setShouldRefetch } = useRefetchState();
-  const { data: rooms, refetch } = useFetchData<FetchResponse<Hotel[]>>(
-    "/admin/get_my_rooms"
-  );
+  const {
+    data: rooms,
+    isLoading,
+    refetch,
+  } = useFetchData<FetchResponse<Hotel[]>>("/admin/get_my_rooms");
   const { mutate: mutateDelete } = useSendData<Room>("/admin/delete_room");
   console.log(rooms?.data);
   const capacityOptions = [
@@ -128,6 +131,9 @@ const Hotels = () => {
           h="60vh"
           w="65vw"
           overflowY={"auto"}
+          borderRadius={10}
+          boxShadow="base"
+          bgColor={COLORS.GrayBlue}
           sx={{
             "&::-webkit-scrollbar": {
               width: "10px",
@@ -140,6 +146,19 @@ const Hotels = () => {
             },
           }}
         >
+          {isLoading && (
+            <>
+              {[...Array(18)].map((index) => (
+                <Skeleton
+                  key={`skeleton-${index}`}
+                  h="139px"
+                  w="159px"
+                  borderRadius={10}
+                />
+              ))}
+            </>
+          )}
+
           {filteredRooms?.map((room) => (
             <Flex
               key={room.id}

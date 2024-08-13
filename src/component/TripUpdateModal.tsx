@@ -26,6 +26,7 @@ import { Trip, TripDetails } from "../Interfaces/Trip";
 import { FetchResponse } from "../services/api-client";
 import { MultiSelect } from "chakra-multiselect";
 import { FONTS } from "../fonts";
+import useRefetchState from "../state-managment/RefetchState";
 
 interface Props {
   title: string;
@@ -35,6 +36,7 @@ interface Props {
 }
 
 const TripUpdateModal = ({ title, icon, trip, tripDetails }: Props) => {
+  const { shouldRefetch, setShouldRefetch } = useRefetchState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [formData, setFormData] = useState({
     add_new_people: "",
@@ -77,6 +79,7 @@ const TripUpdateModal = ({ title, icon, trip, tripDetails }: Props) => {
     console.log(formData);
     mutate(formData, {
       onSuccess: () => {
+        setShouldRefetch({tripDetails:true})
         onClose();
         toast({
           title: "success",

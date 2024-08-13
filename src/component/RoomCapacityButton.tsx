@@ -11,7 +11,7 @@ const RoomCapacityButton = ({ capacity, onClick, selected }) => {
       shadow={"md"}
       textAlign={"center"}
       cursor={"pointer"}
-      bg={selected ? `${COLORS.cyan}` : ""}
+      bg={selected ? `${COLORS.cyan_2}` : ""}
       onClick={onClick}
       _hover={{
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -19,6 +19,8 @@ const RoomCapacityButton = ({ capacity, onClick, selected }) => {
         transition: "box-shadow 0.7s ease, transform 0.7s ease",
       }}
       as="b"
+      
+      // border={`2px solid ${COLORS.GrayBlue}`}
     >
       {capacity}
     </Box>
