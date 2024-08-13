@@ -36,10 +36,10 @@ const NavBar = ({ path }) => {
       },
       {
         onError: (error) => {
-          console.error("Submission error:", error);
+          console.error("Submission error::", error);
         },
         onSuccess: (data) => {
-          console.log("Submission success:", data);
+          console.log("Submission success::", data);
         },
       }
     );
