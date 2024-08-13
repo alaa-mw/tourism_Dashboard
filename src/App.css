@@ -1,0 +1,58 @@
+
+#root {
+  /* align-items: "center"; */
+  /* colors */
+  /* --darkblue: #112D4E;
+  --lightblue: #3F72AE;
+  --Gray: #DBE2EF;
+  --white: #F9F7F7; */
+  /* fonts */
+  --rare-font: 'Pacifico', sans-serif;
+  cursor: default;
+
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+@font-face {
+  font-family: 'normal';
+  src: url('fonts/normal.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Philosopher';
+  src: url('fonts/Philosopher-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: url('fonts/Pacifico-Regular.ttf') format('truetype');
+}

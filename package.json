@@ -1,0 +1,56 @@
+{
+  "name": "tourism-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fseehawer/react-circular-slider": "^2.7.0",
+    "@mui/material": "^5.15.20",
+    "@mui/x-date-pickers": "^7.5.1",
+    "@mui/x-date-pickers-pro": "^7.7.1",
+    "@nextui-org/calendar": "^2.0.7",
+    "@tanstack/react-query": "4.28",
+    "@tanstack/react-query-devtools": "4.28",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "chakra-multiselect": "^0.4.13",
+    "chart.js": "^4.4.3",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.11",
+    "firebase": "^10.12.5",
+    "framer-motion": "^11.1.7",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-background-slider": "^4.0.0-next.2",
+    "react-chartjs-2": "^5.2.0",
+    "react-date-range": "^2.0.1",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-duration-picker": "^1.1.1",
+    "react-icons": "^5.2.0",
+    "react-router-dom": "^6.23.0",
+    "react-simple-image-slider": "^2.4.1",
+    "react-textra": "^0.2.0",
+    "universal-cookie": "^7.1.4",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "gh-pages": "^6.1.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  }
+}

@@ -1,0 +1,25 @@
+.formControl {
+    display: ruby-text;
+    padding: 5px;
+    margin-top: 60px;
+    box-sizing: border-box;
+    justify-content: center; 
+    /* align-items: center; */
+    
+    backdrop-filter: blur(15px); 
+    background-color: rgba(255, 255, 255, 0.001);
+    padding: 16px;
+    border-radius: 20px;
+}
+.login{
+    /* color: var(--darkblue); */
+    font-size: 40px;
+    margin-bottom: 50px;
+    font-weight: 0%;
+    font-family: var( --rare-font);
+}
+.solid-placeholder::placeholder {
+    color: "black"; 
+    opacity: 1; 
+}
+
